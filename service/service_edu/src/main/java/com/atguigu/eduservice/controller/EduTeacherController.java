@@ -64,12 +64,6 @@ public class EduTeacherController {
 
         Page<EduTeacher> pageTeacher = new Page<>(current, limit);
         teacherService.page(pageTeacher, null);
-        try {
-            int i = 10 / 0;
-
-        } catch (Exception e) {
-            throw new GuliException(20001, "执行了自定义异常处理。。。。");
-        }
         long total = pageTeacher.getTotal();
         List<EduTeacher> records = pageTeacher.getRecords();
         return R.ok().data("total", total).data("rows", records);
